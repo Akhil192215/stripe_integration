@@ -1,0 +1,12 @@
+/* src/index.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #F2F3F7;
+}
