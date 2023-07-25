@@ -4,12 +4,9 @@ class CouponController {
   validate(req, res) {
     const { enteredCouponCode, orderDetailes } = req.body;
     const couponObj = coupons.find((obj) => obj.code === enteredCouponCode);
-    //   console.log(couponObj);
+    // console.log(orderDetailes);
     if (couponObj) {
       const { discount } = couponObj;
-      //   console.log(discount);
-      //   ((orderDetailes.price.slice(1) * (100 - discount)) / 100).toFixed(2)
-
       const applyDiscount = (price) => {
         const productPrice = parseFloat(price.replace("$", ""));
         const discountedPrice = productPrice - productPrice * (discount / 100); // 10% discount
@@ -20,10 +17,10 @@ class CouponController {
         const discountedPrice = applyDiscount(product.price);
         result[product.ticketNo] = `$${applyDiscount(product.price)}`;
         totalPrice += +discountedPrice;
-       
+
         return result;
       }, {});
-      res.status(200).json({discountedProducts,totalPrice})
+      res.status(200).json({ discountedProducts, totalPrice });
     } else {
       res.status(404).json({ message: "invalid coupon" });
     }

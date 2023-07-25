@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   CardNumberElement,
   CardExpiryElement,
@@ -12,13 +13,17 @@ import { Button } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 
 const PaymentForm = ({ discountedTotalPrice }) => {
+
   const [success, setSuccess] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
   const nav = useNavigate();
-  let totalMoney = discountedTotalPrice.toFixed(2) * 100;
+  let totalMoney = discountedTotalPrice?.toFixed(2) * 100;
+  console.log("discountedTotalPrice");
+  console.log(discountedTotalPrice);
+  console.log("discountedTotalPrice");
   const CARD_OPTIONS = {
     iconStyle: "solid",
     style: {
@@ -157,7 +162,7 @@ const PaymentForm = ({ discountedTotalPrice }) => {
             }`}
             onClick={handlePayment}
           >
-            {loading ? "Loading..." : `Pay $${discountedTotalPrice.toFixed(2)}`}
+            {loading ? "Loading..." : `Pay $${discountedTotalPrice?.toFixed(2)}`}
           </Button>
         </form>
       </div>

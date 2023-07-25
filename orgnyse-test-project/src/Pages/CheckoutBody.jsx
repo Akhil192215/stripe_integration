@@ -12,7 +12,6 @@ const CheckoutBody = () => {
     phone: "",
   };
 
-  
   const orderDetailes = [
     {
       ticketNo: "Ticket Number 1 Name",
@@ -30,9 +29,9 @@ const CheckoutBody = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [check, setCheck] = useState(false);
-  
+
   const nav = useNavigate();
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -62,36 +61,6 @@ const CheckoutBody = () => {
     return errors;
   };
 
-
-  const [ticketCounts, setTicketCounts] = useState(
-    orderDetailes.map((order) => 1)
-  );
-
-  const handleIncrement = (index) => {
-    if (ticketCounts[index] < orderDetailes[index].maxQuantity) {
-      setTicketCounts((prevCounts) =>
-        prevCounts.map((count, i) => (i === index ? count + 1 : count))
-      );
-    }
-  };
-
-  const handleDecrement = (index) => {
-    if (ticketCounts[index] > 1) {
-      setTicketCounts((prevCounts) =>
-        prevCounts.map((count, i) => (i === index ? count - 1 : count))
-      );
-    }
-  };
-
-  const totalPrice = orderDetailes.reduce(
-    (accumulator, order, index) =>
-      accumulator +
-      parseFloat(order.price.slice(1)) *
-        Math.min(ticketCounts[index], order.maxQuantity),
-    0
-  );
-
-
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && check) {
       setIsSubmit(true);
@@ -102,7 +71,7 @@ const CheckoutBody = () => {
 
   useEffect(() => {
     if (isSubmit) {
-      nav('/checkout',{  state: { ticketCounts, totalPrice } })
+      nav("/checkout");
     }
   }, [isSubmit]);
   return (
@@ -202,16 +171,11 @@ const CheckoutBody = () => {
         </div>
         <div Name="mt-4 md:mt-0">
           <p className="text-primary ml-[46px] mt-[8vh]">SUMMERY</p>
-          <Summery 
-           orderDetails={orderDetailes}
-           ticketCounts={ticketCounts}
-           setTicketCounts={setTicketCounts}
-           totalPrice={totalPrice}
-           />
+          <Summery />
         </div>
       </div>
       <div className="mt-[20vh]">
-        <ProgressBar  handleSubmit={handleSubmit} />
+        <ProgressBar handleSubmit={handleSubmit} />
       </div>
     </>
   );
