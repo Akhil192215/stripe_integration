@@ -1,89 +1,50 @@
+#  Checkout Page with Stripe Integration
 
-# ORGNYSE - TEST PROJECT
+![App Screenshot](<Add Your Screenshot URL Here>)
 
-This is a completed project for a Checkout Page with integrated Stripe payment gateway and a coupon feature. The project consists of two pages: the first page contains a form for user details, product selection with add and reduce buttons, and a product summary. Form validation is implemented to ensure accurate user information.
+## Overview
 
-On the second page, users can apply a coupon to avail discounts before proceeding to payment. The Stripe integration allows secure payment processing for a seamless checkout experience.
-## Features
+A Checkout Page project featuring Stripe payment gateway integration and a coupon system. The application has two pages: the first collects user details, allows product selection, and displays a summary. The second allows coupon application before payment, ensuring a secure and smooth checkout.
 
-- Form Validation: : Provide clear and informative validation messages to guide users in completing the form correctly.
-- Coupon Feature: Allow customers to apply coupons during checkout to avail discounts on their purchases.
-- Product Selection: Allow users to adjust quantities using add and reduce buttons. Quantity selection is restricted to a predefined maximum per-user limit.
-- Stripe Payment Integration: Integrate Stripe's secure payment gateway to facilitate secure and hassle-free payment processing.
+## Key Features
 
+- **Form Validation:** Informative validation messages guide users for accurate form completion.
+- **Coupon Feature:** Apply discounts using valid coupons during checkout.
+- **Product Selection:** Adjust quantities with add and reduce buttons, enforcing predefined limits.
+- **Stripe Payment:** Secure payment processing through Stripe's gateway.
 
 ## Screenshots
 
-![App Screenshot](https://imgtr.ee/images/2023/07/24/de2c29ca3c5f52ec36e625df212b33d7.png)
-
-
-![App Screenshot](https://imgtr.ee/images/2023/07/24/601b79e5b794ed34ea6d25e79e28b302.png)
-
-
-
-
-
-
-
+![App Screenshot](<Add Your Screenshot URL Here>)
 
 ## Installation
 
-    
-Install  with npm
-for frontend
+### Frontend
+
 ```bash
-  cd orgnyse-test-project
-  npm install 
+cd orgnyse-test-project
+npm install```
 ```
-Install  with npm
-for backend
+### Backend
+
 ```bash
-  cd server
-  npm install 
+cd server
+npm install
+Add your Stripe public key in stripeContainer component:
 ```
-
-Enter you stripe public key in stripeContainer component
 ```bash
- const PUBLIC_KEY ='ENTER YOUR PUBLIC_KEY'
+const PUBLIC_KEY = 'ENTER YOUR PUBLIC_KEY';
 ```
-## Environment Variables
+```bash
+Environment Variables
+Create a .env file and add:
 
-To run this project, you will need to add the following environment variables to your .env file
+STRIPE_SECRET_KEY
+PORT
+```
 
-`STRIPE_SECRET_KEY`
-
-`PORT`
-
-
-## Demo
-
-https://drive.google.com/file/d/1orWd8TtDdEn2Bg__aU_tmkJIawrWuAWT/view?usp=sharing
-
-## Tech Stack
-
-**Client:** React, TailwindCSS
-
-**Server:**  Express,Stripe
-
-
-## Appendix
-
-Valid coupons created in the server
-
-Coupons:
-
-WELCOME15
-
-SUMMER20
-
-WINTER10
-
-HAPPY005
-
-BONUS
-## 🔗 Links
-
-
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/akhil-s-poovathinkal-2a4a6922b/)
+Tech Stack
+Client: React, TailwindCSS
+Server: Express, Stripe
 
 
